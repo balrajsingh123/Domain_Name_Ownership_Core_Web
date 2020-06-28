@@ -1,0 +1,42 @@
+﻿@page
+@model Domain_Name_Ownership_Core_Web.Pages.Ownerships.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ownerships</h1>
+
+<p>
+    <a class="btn btn-primary  rounded-pill" asp-page="Create">Add Ownership</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ownership[0].Owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ownership[0].Domain)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Ownership) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Domain.DomainName)
+            </td>
+            <td>
+                <a class="btn btn-primary  rounded-pill" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-primary  rounded-pill" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-primary  rounded-pill" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

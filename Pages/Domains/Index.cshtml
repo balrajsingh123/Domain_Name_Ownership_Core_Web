@@ -1,0 +1,48 @@
+﻿@page
+@model Domain_Name_Ownership_Core_Web.Pages.Domains.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Domains</h1>
+
+<p>
+    <a class="btn btn-primary  rounded-pill" asp-page="Create">Add Domain</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Domain[0].DomainName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Domain[0].ContactPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Domain[0].DomainHost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Domain) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DomainName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DomainHost.Name)
+            </td>
+            <td>
+                <a class="btn btn-primary rounded-pill" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-primary  rounded-pill" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-primary rounded-pill" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

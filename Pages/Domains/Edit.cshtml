@@ -1,0 +1,45 @@
+﻿@page
+@model Domain_Name_Ownership_Core_Web.Pages.Domains.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Domain</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Domain.Id" />
+            <div class="form-group">
+                <label asp-for="Domain.DomainName" class="control-label"></label>
+                <input asp-for="Domain.DomainName" class="form-control" />
+                <span asp-validation-for="Domain.DomainName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Domain.ContactPhone" class="control-label"></label>
+                <input asp-for="Domain.ContactPhone" class="form-control" />
+                <span asp-validation-for="Domain.ContactPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Domain.DomainHostId" class="control-label"></label>
+                <select asp-for="Domain.DomainHostId" class="form-control" asp-items="ViewBag.DomainHostId"></select>
+                <span asp-validation-for="Domain.DomainHostId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

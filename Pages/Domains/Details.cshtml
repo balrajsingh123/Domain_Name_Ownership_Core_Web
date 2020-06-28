@@ -1,0 +1,37 @@
+﻿@page
+@model Domain_Name_Ownership_Core_Web.Pages.Domains.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Domain</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Domain.DomainName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Domain.DomainName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Domain.ContactPhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Domain.ContactPhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Domain.DomainHost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Domain.DomainHost.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Domain.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
